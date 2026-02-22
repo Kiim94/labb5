@@ -1,0 +1,89 @@
+nav{
+    background-color:var(--nav-bg);
+    color: var(--nav-text);
+    .menu{
+        list-style:none;
+        display:flex;
+        justify-content:center;
+        gap:1rem;
+        padding:0;
+        margin:0;
+    }
+}
+.menu a{
+    text-decoration:none;
+    padding:1rem;
+    display:block;
+    font-size:1.4rem;
+    color:var(--nav-text);
+    font-weight:bold;
+
+    &:hover{
+        color:var(--hover-text);
+        text-decoration:underline;
+        background-color:var(--hover-links);
+    }
+}
+
+.hamburger{
+  display:none;
+  background:none;
+  border:none;
+  cursor:pointer;    
+  span{
+    display:inline-block;
+    font-size:3rem;
+    padding:0.3rem;
+    color:var(--nav-text);
+
+    &:hover{
+        background-color:var(--hover-links);
+    }
+  }
+}
+
+@media(max-width:599px){
+    .hamburger{
+        display:inline-block;
+        span{
+            color:var(--nav-bg);
+        }
+    } 
+    nav {
+        //hamburgermny blev genomskinlig utan denna nedan
+        color: var(--nav-text);
+        .menu{
+            display:none;
+            flex-direction:column;
+            position:absolute;
+            top:100%;
+            left: 0; 
+            right:0;
+            padding:1rem 0;
+            margin:0;
+            z-index:10;
+            background-color:var(--nav-bg);
+
+            &.active{
+                display:flex;
+            }
+
+            li{
+                text-align:center;
+                border-top: 1px solid black;
+
+                a{
+
+                &:hover{
+                    color:var(--hover-text);
+                    text-decoration:underline;
+                    }
+                }
+            }
+        }
+        
+        ul{
+        border-bottom:1px solid black;
+        }   
+    }
+}

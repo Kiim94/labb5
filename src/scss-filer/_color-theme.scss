@@ -1,0 +1,46 @@
+@use "sass:color";
+
+
+@mixin side-border($width, $color){
+  border-left:$width solid $color;
+  border-right:$width solid $color;
+}
+//color functions
+$button:#4a90e2;
+
+$button-light: lighten($button, 15%);
+$button-dark: darken($button, 15%);
+
+$button-mix: mix($button, #fff, 20%);
+$button-invert: invert($button);
+
+$button-mute: desaturate($button, 40%);
+$button-vivid: saturate($button, 20%);
+
+
+//ljust tema
+    :root {
+  --body-bg: #3fBDBf;
+  --body-text: #111;
+  --nav-bg: #d87c76;
+  --nav-text: #111;
+  --hover-text:#fff;
+  --hover-links: #72423e;
+  --links: #0066cc;  
+  --section-bg: #aadedf;
+  --section-border: #d87c76;
+}
+//mörkt tema
+@media (prefers-color-scheme: dark) {
+    :root{
+    --body-bg: #111;
+    --body-text: #a0c4d9;
+    --nav-bg: #be633f;
+    --nav-text: #111;
+    --hover-text: #fff;
+    --hover-links: #442418;
+    --links: #3f9abe;
+    --section-bg: #222;
+    --section-border: #be633f;
+    }
+}
