@@ -31,3 +31,4 @@ smiley.addEventListener("click", function() {
         ouch.style.color=originalColor;
     }
 });
+
