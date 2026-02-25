@@ -5,7 +5,7 @@ import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 export default defineConfig({
     //skriv vilket plugin som används
-    base: "/labb4/",
+    base: "/labb5/",
     plugins: [react(),
         ViteImageOptimizer({
             png: {quality:80},
