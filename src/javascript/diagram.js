@@ -134,11 +134,11 @@ function createCircle(data){
             maintainAspectRatio:false,
             plugins:{
                 legend:{
-                    position:"top",
+                    position:"left",
                     align:"center",
                     display:true,
                     labels:{
-                        boxWidth: 60,
+                        boxWidth: 35,
                         boxHeight: 20,
                         font: {
                             size:14
