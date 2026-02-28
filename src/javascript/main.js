@@ -1,4 +1,4 @@
-import './scss-filer/style.scss'
+import '../scss-filer/style.scss'
 
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector("nav ul.menu");
