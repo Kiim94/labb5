@@ -1,3 +1,23 @@
+/**
+ * Vi testar detta med JSDoc. 
+ * Hämta + filtrera data. Skapa stapel som visar totalt sökande + namn på kurser.
+ * @function createBar
+ * @param {Array<Object>} data - array med information om kurser + program på Mittuniversitetet.
+ * Varje objekt innehåller bl.a:
+ *  - name: kursens/programmets namn.
+ *  - applicantsTotal: antal sökande för det objektet.
+ *  - type: "Kurs" eller "Program".
+ */
+
+/**
+ * @param {Array<Object>} courses - array med kurs-data. Filtrerat så det bara är kursernas data.
+ * @returns {Object} - object med två arrayer nedan:
+ * - labels: namn på de 6 mest sökta kurserna
+ * - values: antal sökande för dessa kurser.
+ */
+
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     fetchData();
 })
@@ -15,27 +35,11 @@ async function fetchData() {
         console.error('Fel:', error);
     }
 }
-/**
- * Vi testar detta med JSDoc. 
- * Hämta + filtrera data. Skapa stapel som visar totalt sökande + namn på kurser.
- * @function createBar
- * @param {Array<Object>} data - array med information om kurser + program på Mittuniversitetet.
- * Varje objekt innehåller bl.a:
- *  - name: kursens/programmets namn.
- *  - applicantsTotal: antal sökande för det objektet.
- *  - type: "Kurs" eller "Program".
- */
+
 
 //funktion för att hämta, sortera och filtrera så vi får data för 6 mest sökta kurser
 function createBar(data){
     const courses = data.filter(c => c.type === "Kurs");
-
-    /**
-     * @param {Array<Object>} courses - array med kurs-data. Filtrerat så det bara är kursernas data.
-     * @returns {Object} - object med två arrayer nedan:
-     * - labels: namn på de 6 mest sökta kurserna
-     * - values: antal sökande för dessa kurser.
-     */
 
     //sortera programmen med parseInt (den hämtar och visar första siffran, t.ex. 200 applicantsTotal).
     //Slice för att hämta 6 värden
@@ -57,7 +61,7 @@ function createBar(data){
         data:{
             labels: labels,
             datasets:[{
-                label: "Topp 6 kurser 2025",
+                label: "Antal sökande ht. 2025",
                 data: values,
                 backgroundColor: colors
             }] 
@@ -77,10 +81,10 @@ function createBar(data){
                     align:"center",
                     display:true,
                     labels:{
-                        boxWidth: 60,
-                        boxHeight: 20,
+                        boxWidth:0,
                         font: {
-                            size:14
+                            size:17,
+                            weight:"bold"
                         },
                     }
                 },
@@ -139,6 +143,14 @@ function createCircle(data){
                         font: {
                             size:14
                         },
+                    }
+                },
+                title:{
+                    display:true,
+                    text:"Topp 5 program ht. 2025",
+                    font:{
+                        size:18,
+                        weight:"bold"
                     }
                 }
             }
