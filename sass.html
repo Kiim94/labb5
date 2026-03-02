@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <title>Labb3/4/5</title>
+    <script type="module" crossorigin src="/labb5/assets/main-CA3DGyLY.js"></script>
+    <link rel="stylesheet" crossorigin href="/labb5/assets/main-BuEUiELY.css">
+  </head>
+  <h1>Labb3/4/5</h1>
+  <header>
+    <button class="hamburger">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Start</a></li>
+            <li><a href="sass.html">SASS</a></li>
+            <li><a href="images.html">Bilder</a></li>
+            <li><a href="if-else-buttons.html">If/Else</a></li>
+            <li><a href="animation.html">Animering</a></li>
+            <li><a href="diagram.html">Diagram</a></li>
+            <li><a href="karta.html">Karta</a></li>
+        </ul>
+    </nav>
+  </header>
+  <body>
+    <main>
+    <section>
+      <h2>Om att använda SASS</h2>
+      <p>Vissa delar av denna laboration var svårare än andra att börja med. Själva färgschemat (mörk/ljust tema) var inte alltför problematiskt. Likaså color functions.</p>
+      <p>Det som bjöd på mest motstånd var egentligen nesting, för min del: komiskt, då det egentligen inte är mycket annat än att man lägger till det element som finns inuti
+        ett annat inom samma css. Problemet där var att jag kunde bli lite överentusiastisk och plötsligt hade lite väl många måsvingar att hantera.
+      </p>
+
+
+      <h3>Fördelar</h3>
+      <p><b>Nesting</b> och <b>partials</b> är användbara för att göra koden mer läsbar och lättare att sortera i "kategorier" för sig själv. Med detta syftar jag på att man kan göra specifika
+        partials/scss-filer som hanterar vissa delar av koden utan att man behöver scrolla igenom en lång vägg av kod för att hitta det som man vill ändra eller lägga till. Det
+        som tillhör navigeringen går att hitta i partial som heter navigering, till exempel.
+      </p>
+      <p>Det går vidare att "banta ner" koden något. Istället för att upprepa samma rader med ytterligare ett element på slutet (exempelvis nav ul li a) så går det, via nesting, 
+        att helt enkelt "lägga till" ett element i samma grupp och bygga vidare. Ungefär som att lägga till legobitar för att bygga ett torn.
+      </p>
+      <p><b>Variabler</b> i sin tur är relativt rättframma att skapa. Huvudsaken är att man inte är alltför vag om man vill vara specifik med exakt vart färgen ska. Det går vidare
+        fort att kontrollera, när det gäller färg variabler, vilken färgen egentligen är. Det gör det enkelt att skapa föränderliga färgscheman.
+      </p>
+      <p><b>If/else</b> kan jag se nyttan av ifall man snabbt vill byta utseende på statiska delar, eller om man har element av samma typ (t.ex. knappar) som man vill
+        skapa olika utseenden för utan att skriva mycket kod på varenda en. Det är simpelt att göra if/else och bara ändra egenskapen (se sidan <i>If/Else</i>
+      där knappar har ändrat storleksordning). Det påminner lite grann om @media, att innehållets styling ska ändras vid ett visst tillfälle.</p>
+      <p><b>Selector inheritance</b> fann jag ganska användbar för att inte behöva upprepa samma stil om och om igen på de platser där jag ville ha samma styling: ville
+      jag ha något ytterligare var det enkelt att lägga till några ytterligare rader på det andra elementet/klassen.</p>
+    </section>
+
+
+    <section>
+      <h3>Nackdelar</h3>
+      <p>Som tidigare nämnt hade jag lite problem med nesting: när jag väl var klar med det jag ville göra försökte jag städa upp/sortera in det som kunde "gå in" i varandra.
+        Men detta skapade problem, särskilt med hamburgermenyn: element hamnade på fel plats så att menyn slutade fungera som planerat. En tanke för framtiden är att göra nesting
+        FÖRST: att försöka rätta upp det i efterhand kan bjuda på huvudvärk.
+      </p>
+      <p>Som tidigare nämnt hade jag lätt att <b>förlora mig i nesting</b>: plötsligt satt jag där och hade alldeles för många måsvingar.</p>
+      <p>Partials kan, precis som med nesting, också bli många om man inte är försiktig. Man kanske bestämmer sig för att allt med knappar att göra ska ha en partial, och allt
+        som har med bilder att göra ska ha en partial. När någonting sedan inte fungerar som det ska kan det bli lite knepigt att lista ut vilken partial det är som problemet 
+        ligger i.
+      </p>
+        <p>(Jag upptäckte detta genom att ha desktop navigering css i huvud scss filen. Jag skapade även en partial som hette breakpoints där jag från början hade planerat
+          att ha mina brytpunkter, som hamburgermenyn. För att göra hamburgermeny arbetade jag i min partial, men upptäckte senare att ingenting fungerade. 
+          Visade sig att detta sätt gjorde att hamburgermenyn blev för evigt dold. Gick att lösa genom att flytta all navigation till en egen partial och ta bort 
+          breakpoints partial istället)</p>
+        <p>Med variabler finns faran att om man inte är försiktig kan man blanda ihop vad som är vad, särskilt om man har många variabler. </p>
+    </section>
+    <section>
+      <h3>Sammanfattning</h3>
+      <p>Allt detta nya finns det nytta för: man kan sortera upp sin kod i egna filer som senare slås ihop till en enda efter kompilering och på det
+        viset lättare skilja på vad som orsakar vad. Det blir en mer överskådlig kod: lättare att hantera problem eller lägga till kod. Man får själv välja
+        vad som händer med webbplatsen vid olika lägen (t.ex. vilka färger som syns vid mörkt/ljust tema). 
+      </p>
+      <p>Problemet för en nybörjare är det gamla vanliga: att lära sig och komma in i rytmen av att använda mixins, nesting, variabler med mera.</p>
+    </section>
+    <div id="app"></div>
+  </main>
+  <footer>
+    <p>Moa B. </p>
+    <p>mobr2500@student.miun.se</p>
+    <p>DT211G</p>
+  </footer>
+  </body>
+</html>

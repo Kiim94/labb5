@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+
+<!-- leaflet css-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<!--geocoder css-->
+     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <title>Labb3/4/5</title>
+    <script type="module" crossorigin src="/labb5/assets/main-CA3DGyLY.js"></script>
+    <link rel="stylesheet" crossorigin href="/labb5/assets/main-BuEUiELY.css">
+  </head>
+  <h1>Labb3/4/5</h1>
+  <header>
+    <button class="hamburger">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Start</a></li>
+            <li><a href="sass.html">SASS</a></li>
+            <li><a href="images.html">Bilder</a></li>
+            <li><a href="if-else-buttons.html">If/Else</a></li>
+            <li><a href="animation.html">Animering</a></li>
+            <li><a href="diagram.html">Diagram</a></li>
+            <li><a href="karta.html">Karta</a></li>
+        </ul>
+    </nav>
+  </header>
+  <body>
+    <main>
+      <section>
+        <h2>Karta för labb5</h2>
+        <p>Hade ganska svårt med denna uppgift, men lyckades hitta en ganska skonsam lösning till slut tack vare Leaflet.</p>
+        <p>Jag har använt mig av <a href="https://leafletjs.com/">Leaflet</a> för att skapa kartan nedan.
+          <p>I skrivande stund går det att söka och hitta - men inte alltid. Ibland fungerar det t.ex inte att hitta Stockholm.
+             Enligt Google ett CORS-problem?</p>
+        <p>Skriv i rutan nedan för att söka en plats/adress.</p>
+        <input type="text" id="search" placeholder="Sök plats...">
+        <button id="btnSearch"> Sök </button>
+        <div id="map"></div> 
+      </section>
+    </main>
+  <footer>
+    <p>Moa B. </p>
+    <p>mobr2500@student.miun.se</p>
+    <p>DT211G</p>
+  </footer>
+
+    <!-- leaflet js -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/src/javascript/karta.js"></script>
+    <script></script>
+  </body>
+</html>
