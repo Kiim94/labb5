@@ -1,3 +1,7 @@
-Länk till ny sida på webbplatsen: https://kiim94.github.io/labb4/animation.html
+Länk till ny sida på webbplatsen: https://kiim94.github.io/labb5/diagram.html
 
-Denna laboration handlar om att göra animationer/mer livlig interaktion på webbplats. Använt laboration 3 som fortsatt arbetsplats, hoppas det inte blir några konstigheter.
+Laborationen här handlade om att skapa ett stapel och ett cirkeldiagram mha JSON och fetch. Samt att skapa en karta och göra den sökbar.
+
+Vid publicering upptäckte jag att ingenting kom fram. Visade sig bero på var jag placerat script/src. Importerade i main.js istället för i html, då gick det bättre.
+
+Får inte fram markörer dock. I liver-server läge innan publicering fungerar de.
