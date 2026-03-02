@@ -39,8 +39,12 @@
         <h2>Karta för labb5</h2>
         <p>Hade ganska svårt med denna uppgift, men lyckades hitta en ganska skonsam lösning till slut tack vare Leaflet.</p>
         <p>Jag har använt mig av <a href="https://leafletjs.com/">Leaflet</a> för att skapa kartan nedan.
+          <p>I skrivande stund går det att söka och hitta - men inte alltid. Ibland fungerar det t.ex inte att hitta Stockholm.
+             Enligt Google ett CORS-problem?</p>
         <p>Skriv i rutan nedan för att söka en plats/adress.</p>
-        <div id="map"></div>
+        <input type="text" id="search" placeholder="Sök plats...">
+        <button id="btnSearch"> Sök </button>
+        <div id="map"></div> 
       </section>
     </main>
   <footer>

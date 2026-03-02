@@ -52,6 +52,9 @@ nav{
     nav {
         //hamburgermny blev genomskinlig utan denna nedan
         color: var(--nav-text);
+        //z-index högt för att hamna ovanpå karta + zoom knappar
+        z-index:1001;
+        position:relative;
         .menu{
             display:none;
             flex-direction:column;
@@ -61,7 +64,6 @@ nav{
             right:0;
             padding:1rem 0;
             margin:0;
-            z-index:10;
             background-color:var(--nav-bg);
 
             &.active{

@@ -1,9 +1,3 @@
-@mixin span-style{
-    width: 1.2rem;
-    height: auto;
-    display: inline-block;
-    border:1px solid white;
-}
 
 div{
     width:100%;
@@ -26,34 +20,35 @@ canvas{
 
 //karta
 #map{
-    max-width:900px;
-    width:100%;
-    height:500px;
+    @extend #bar;
     margin:0 auto;
+    height:500px;
     position:relative;
 }
 .centered{
     text-align:center;
 }
-.leaflet-control-geocoder {
-    max-width: 250px;
-    width: 100%;
-}
-//dessa .leaflet - går att hitta om man tittar i devtools - blir auto med leaflet + geocoder
-/* Gör inputen lite mindre */
-.leaflet-control-geocoder-form input {
-    font-size: 14px;
-    padding: 4px 6px;
-}
 
-.leaflet-popup-content-wrapper{
-    max-width:420px;
-    padding:0.2rem 0.5rem;
+#search{
+    font-size:1rem;
+    padding:0.3rem;
+    display:inline-block;
+    display:block;
+    margin:0 auto;
 }
-
+#btnSearch{
+    @extend #search;
+    margin-top:0.3rem;
+    margin-bottom:0.3rem;
+}
 
 .leaflet-control-zoom{
     width:fit-content;
+}
+.leaflet-popup-content{
+    max-width:200px;
+    font-size:0.8rem;
+    white-space:normal;
 }
 @media (max-width:600px){
     .leaflet-control-geocoder{

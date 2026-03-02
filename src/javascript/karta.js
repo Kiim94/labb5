@@ -17,4 +17,46 @@ window.addEventListener("load", () => {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    //knapp sök
+    const btnSearch = document.getElementById("btnSearch");
+    btnSearch.addEventListener("click", () => {
+        //innehåll från input
+        const search = document.getElementById("search").value;
+        searchFunction(search);
+    })
+
+    /**
+     * Söker plats med nominatim API.
+     * Placerar marköt på kartan
+     * @async
+     * @param {string} search - Användare skriver text för att söka efter adress/stad/plats
+     * @returns {Promise<void>} - Inget. Uppdaterar karta med markör
+     * 
+     * @example searchFunction("Örnsköldsvik");
+     * //Användaren söker "Örnsköldsvik" i sökrutan
+     * //Karta flyttas till den platsen med markör
+     */
+    //hämta api med async
+    async function searchFunction(search){
+        try{
+            const response = await fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(search)
+        );
+
+        const data = await response.json();
+
+        if(data.length > 0){
+            const lat = data[0].lat;
+            const lon = data[0].lon;
+
+            map.setView([lat,lon], 15);
+            L.marker([lat, lon])
+            .addTo(map)
+            .bindPopup(data[0].display_name)
+            .openPopup();
+        }
+        }catch(err){
+            console.error("Något gick fel: ", err);
+        }
+    }
 });
