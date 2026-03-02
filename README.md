@@ -5,3 +5,5 @@ Laborationen här handlade om att skapa ett stapel och ett cirkeldiagram mha JSO
 Vid publicering upptäckte jag att ingenting kom fram. Visade sig bero på var jag placerat script/src. Importerade i main.js istället för i html, då gick det bättre.
 
 Får inte fram markörer dock. I liver-server läge innan publicering fungerar de.
+
+Lyckades till slut med att skapa en liten neråt pil.
