@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: diagram.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: diagram.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import Chart from 'chart.js/auto'
+
+document.addEventListener("DOMContentLoaded", async () => {
+    fetchData();
+})
+async function fetchData() {
+    const url = 'https://mallarmiun.github.io/Frontend-baserad-webbutveckling/Moment%205%20-%20Dynamiska%20webbplatser/statistik_sokande_ht25.json'
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        //function call
+        createBar(data);
+        createCircle(data);
+        console.log(data); // Visa datan i konsolen
+    } catch (error) {
+        console.error('Fel:', error);
+    }
+}
+
+/**
+ * Vi testar detta med JSDoc. 
+ * Hämta + filtrera data. Skapa stapel som visar totalt sökande + namn på kurser.
+ * @function createBar
+ * @param {Array&lt;Object>} data - array med information om kurser + program på Mittuniversitetet.
+ * @returns {Object} - object med två arrayer nedan:
+ * - labels: namn på de 6 mest sökta kurserna
+ * - values: antal sökande för dessa kurser.
+ * */
+//funktion för att hämta, sortera och filtrera så vi får data för 6 mest sökta kurser
+function createBar(data){
+    const courses = data.filter(c => c.type === "Kurs");
+
+    //sortera programmen med parseInt (den hämtar och visar första siffran, t.ex. 200 applicantsTotal).
+    //Slice för att hämta 6 värden
+    const top6 = courses.sort((a,b) => parseInt(b.applicantsTotal) - parseInt(a.applicantsTotal)).slice(0,6);
+
+    //hämta namn och värden. Map gör nya arrayer med map - en innehåller namn på kurserna, den andra med antal sökande
+    const labels = top6.map(c => c.name);
+    const values = top6.map(c => c.applicantsTotal);
+    
+    //skapa stapeln! variabel ifall man vill göra ngt mer med den
+    const canvasBar = document.getElementById("bar");
+
+    //färger på staplarna
+    const colors = ["crimson", "cornflowerblue", "lightseagreen", "chocolate", "indigo", "goldenrod"];
+
+    //själva "stapeln"
+    const newCanvasBar = new Chart(canvasBar, {
+        type: "bar",
+        data:{
+            labels: labels,
+            datasets:[{
+                label: "Antal sökande ht. 2025",
+                data: values,
+                backgroundColor: colors
+            }] 
+        },
+        options:{
+            responsive:true,
+            maintainAspectRatio:false,
+            layout:{
+                padding:{
+                    left:110,
+                    right:0
+                }
+            },
+            plugins:{
+                legend:{
+                    position:"top",
+                    align:"center",
+                    display:true,
+                    labels:{
+                        boxWidth:0,
+                        font: {
+                            size:17,
+                            weight:"bold"
+                        },
+                    }
+                },
+                scales:{
+                    y:{
+                        beginAtZero: true,
+                    },
+                    x:{
+                        font:{
+                            size:10
+                        },
+                        ticks:{
+                            maxRotation:45,
+                            minRotation:45
+                        }
+                    }
+                }
+            }
+        }});
+    }
+
+//cirkel. Ska visa statistik över de 5 mest sökta PROGRAMMEN. Namn + totalt antal sökande
+function createCircle(data){
+    const programs = data.filter(p => p.type === "Program");
+
+    const top5 = programs.sort((a,b) => parseInt(b.applicantsTotal) - parseInt(a.applicantsTotal)).slice(0,5);
+    
+    const labels = top5.map(c => c.name);
+    const values = top5.map(c => c.applicantsTotal);
+    
+    console.log(top5);
+    const canvasCircle = document.getElementById("circle");
+
+    const circleColors = ["red", "blue", "green", "orange", "purple"];
+    const newCanvasBar = new Chart(canvasCircle, {
+        type: "pie",
+        data:{
+            labels: labels,
+            datasets:[{
+                label: "Topp 5 program 2025",
+                data: values,
+                backgroundColor: circleColors
+            }] 
+        },
+        options:{
+            responsive:true,
+            maintainAspectRatio:false,
+            plugins:{
+                legend:{
+                    position:"left",
+                    align:"center",
+                    display:true,
+                    labels:{
+                        boxWidth: 35,
+                        boxHeight: 20,
+                        font: {
+                            size:14
+                        },
+                    }
+                },
+                title:{
+                    display:true,
+                    text:"Topp 5 program ht. 2025",
+                    font:{
+                        size:18,
+                        weight:"bold"
+                    }
+                }
+            }
+        }});
+    }</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#createBar">createBar</a></li><li><a href="global.html#searchFunction">searchFunction</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Tue Mar 03 2026 09:18:49 GMT+0100 (centraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
