@@ -1,5 +1,7 @@
 Länk till ny sida på webbplatsen: https://kiim94.github.io/labb5/diagram.html
 
+Länk till JS Doc: https://kiim94.github.io/labb5/out/index.html
+
 Laborationen här handlade om att skapa ett stapel och ett cirkeldiagram mha JSON och fetch. Samt att skapa en karta och göra den sökbar.
 
 Vid publicering upptäckte jag att ingenting kom fram. Visade sig bero på var jag placerat script/src. Importerade i main.js istället för i html, då gick det bättre.
