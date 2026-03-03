@@ -1,6 +1,8 @@
 Länk till ny sida på webbplatsen: https://kiim94.github.io/labb5/diagram.html
 
-Länk till JS Doc: https://kiim94.github.io/labb5/out/index.html
+Länk till JS Doc: [Visa dokumentation](https://Kiim94.github.io/labb5/js-docs/index.html)
+
+(var krångligt att få hit jsdocs, hopppas det fungerar)
 
 Laborationen här handlade om att skapa ett stapel och ett cirkeldiagram mha JSON och fetch. Samt att skapa en karta och göra den sökbar.
 
