@@ -20,7 +20,7 @@ canvas{
 
 //karta
 #map{
-    @extend #bar;
+    width:100%;
     margin:0 auto;
     height:500px;
     position:relative;
@@ -40,6 +40,11 @@ canvas{
     @extend #search;
     margin-top:0.3rem;
     margin-bottom:0.3rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: red;
 }
 
 .leaflet-control-zoom{

@@ -8,6 +8,10 @@
  * https://leafletjs.com/examples/quick-start/
  * 
  */
+
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
 window.addEventListener("load", () => {
     //hämta var kartan ska ligga/laddas in och sätt startvy. Nedan är norrmesunda
     let map = L.map("map").setView([63.29, 18.71], 15);
@@ -47,13 +51,20 @@ window.addEventListener("load", () => {
 
         if(data.length > 0){
             const lat = data[0].lat;
-            const lon = data[0].lon;
+            const lon = data[0].lon;   
 
+            //skapa markör
+            let icon = L.divIcon({
+                className: 'icon',
+                html: '▼',
+                iconSize: [20, 20],
+                iconAnchor:[10,10]
+            });
+            
             map.setView([lat,lon], 15);
-            L.marker([lat, lon])
-            .addTo(map)
-            .bindPopup(data[0].display_name)
-            .openPopup();
+            L.marker([lat,lon], {icon: icon}).addTo(map).bindPopup(data[0].display_name).openPopup();
+
+            
         }
         }catch(err){
             console.error("Något gick fel: ", err);

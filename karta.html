@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 
-<!-- leaflet css-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-<!--geocoder css-->
-     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <title>Labb3/4/5</title>
   </head>
   <h1>Labb3/4/5</h1>
@@ -41,6 +35,8 @@
         <p>Jag har använt mig av <a href="https://leafletjs.com/">Leaflet</a> för att skapa kartan nedan.
           <p>I skrivande stund går det att söka och hitta - men inte alltid. Ibland fungerar det t.ex inte att hitta Stockholm.
              Enligt Google ett CORS-problem?</p>
+             <p>2026-03-02: skulle publicera till GitHub: ingen karta syntes. Panik. Gick till slut, men tyvärr inga markörer. Hur ska man göra med dem?</p>
+             <p>Uppdatering: listade ut. Tack leaflet.</p>
         <p>Skriv i rutan nedan för att söka en plats/adress.</p>
         <input type="text" id="search" placeholder="Sök plats...">
         <button id="btnSearch"> Sök </button>
@@ -53,10 +49,5 @@
     <p>DT211G</p>
   </footer>
     <script type="module" src="/src/javascript/main.js" defer></script>
-
-    <!-- leaflet js -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="/src/javascript/karta.js"></script>
-    <script></script>
   </body>
 </html>

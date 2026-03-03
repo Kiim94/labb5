@@ -1,4 +1,7 @@
-import '../scss-filer/style.scss'
+import '../scss-filer/style.scss';
+import './karta.js';
+import './diagram.js';
+
 
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector("nav ul.menu");

@@ -1,22 +1,5 @@
-/**
- * Vi testar detta med JSDoc. 
- * Hämta + filtrera data. Skapa stapel som visar totalt sökande + namn på kurser.
- * @function createBar
- * @param {Array<Object>} data - array med information om kurser + program på Mittuniversitetet.
- * Varje objekt innehåller bl.a:
- *  - name: kursens/programmets namn.
- *  - applicantsTotal: antal sökande för det objektet.
- *  - type: "Kurs" eller "Program".
- */
 
-/**
- * @param {Array<Object>} courses - array med kurs-data. Filtrerat så det bara är kursernas data.
- * @returns {Object} - object med två arrayer nedan:
- * - labels: namn på de 6 mest sökta kurserna
- * - values: antal sökande för dessa kurser.
- */
-
-
+import Chart from 'chart.js/auto'
 
 document.addEventListener("DOMContentLoaded", async () => {
     fetchData();
@@ -36,7 +19,15 @@ async function fetchData() {
     }
 }
 
-
+/**
+ * Vi testar detta med JSDoc. 
+ * Hämta + filtrera data. Skapa stapel som visar totalt sökande + namn på kurser.
+ * @function createBar
+ * @param {Array<Object>} data - array med information om kurser + program på Mittuniversitetet.
+ * @returns {Object} - object med två arrayer nedan:
+ * - labels: namn på de 6 mest sökta kurserna
+ * - values: antal sökande för dessa kurser.
+ * */
 //funktion för att hämta, sortera och filtrera så vi får data för 6 mest sökta kurser
 function createBar(data){
     const courses = data.filter(c => c.type === "Kurs");
